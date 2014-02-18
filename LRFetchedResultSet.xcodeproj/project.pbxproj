@@ -18,8 +18,8 @@
 		A38665C11676180D0099BD04 /* CoreDataTestStack.m in Sources */ = {isa = PBXBuildFile; fileRef = A38665C01676180D0099BD04 /* CoreDataTestStack.m */; };
 		A38665C41676184D0099BD04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38665C31676184D0099BD04 /* CoreData.framework */; };
 		A38665C5167618560099BD04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38665C31676184D0099BD04 /* CoreData.framework */; };
-		A386662E167619C20099BD04 /* LRManagedObjectModelBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = A386662D167619C20099BD04 /* LRManagedObjectModelBuilder.m */; };
 		A386663016764DF60099BD04 /* libExpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A38666251676190C0099BD04 /* libExpecta-iOS.a */; };
+		FB45753C18578DF700D14877 /* KDOManagedObjectModelBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FB45753B18578DF700D14877 /* KDOManagedObjectModelBuilder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,8 +90,8 @@
 		A38665C01676180D0099BD04 /* CoreDataTestStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataTestStack.m; path = Support/CoreDataTestStack.m; sourceTree = "<group>"; };
 		A38665C31676184D0099BD04 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A38666181676190C0099BD04 /* Expecta.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Expecta.xcodeproj; path = Libraries/Expecta/Expecta.xcodeproj; sourceTree = "<group>"; };
-		A386662C167619C20099BD04 /* LRManagedObjectModelBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LRManagedObjectModelBuilder.h; path = ../../AFIncrementalStore/AFIncrementalStore/AFIncrementalStoreTests/Support/LRManagedObjectModelBuilder.h; sourceTree = "<group>"; };
-		A386662D167619C20099BD04 /* LRManagedObjectModelBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LRManagedObjectModelBuilder.m; path = ../../AFIncrementalStore/AFIncrementalStore/AFIncrementalStoreTests/Support/LRManagedObjectModelBuilder.m; sourceTree = "<group>"; };
+		FB45753A18578DF700D14877 /* KDOManagedObjectModelBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KDOManagedObjectModelBuilder.h; path = Support/KDOManagedObjectModelBuilder.h; sourceTree = "<group>"; };
+		FB45753B18578DF700D14877 /* KDOManagedObjectModelBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KDOManagedObjectModelBuilder.m; path = Support/KDOManagedObjectModelBuilder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,11 +108,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A386663016764DF60099BD04 /* libExpecta-iOS.a in Frameworks */,
 				A38665A5167617910099BD04 /* SenTestingKit.framework in Frameworks */,
 				A38665A8167617910099BD04 /* Foundation.framework in Frameworks */,
 				A38665AB167617910099BD04 /* libLRFetchedResultSet.a in Frameworks */,
 				A38665C5167618560099BD04 /* CoreData.framework in Frameworks */,
+				A386663016764DF60099BD04 /* libExpecta-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,12 +189,12 @@
 		A38665C2167618150099BD04 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				A386662C167619C20099BD04 /* LRManagedObjectModelBuilder.h */,
-				A386662D167619C20099BD04 /* LRManagedObjectModelBuilder.m */,
 				A38665BF1676180D0099BD04 /* CoreDataTestStack.h */,
 				A38665C01676180D0099BD04 /* CoreDataTestStack.m */,
 				A38665BD167617E00099BD04 /* SenTestMacros.h */,
 				A38665BE167617E00099BD04 /* TestHelper.h */,
+				FB45753A18578DF700D14877 /* KDOManagedObjectModelBuilder.h */,
+				FB45753B18578DF700D14877 /* KDOManagedObjectModelBuilder.m */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -355,7 +355,7 @@
 			files = (
 				A38665B4167617910099BD04 /* LRFetchedResultSetTests.m in Sources */,
 				A38665C11676180D0099BD04 /* CoreDataTestStack.m in Sources */,
-				A386662E167619C20099BD04 /* LRManagedObjectModelBuilder.m in Sources */,
+				FB45753C18578DF700D14877 /* KDOManagedObjectModelBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +505,7 @@
 				A38665B9167617910099BD04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A38665BA167617910099BD04 /* Build configuration list for PBXNativeTarget "LRFetchedResultSetTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +514,7 @@
 				A38665BC167617910099BD04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

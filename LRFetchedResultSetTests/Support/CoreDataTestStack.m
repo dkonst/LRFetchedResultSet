@@ -7,7 +7,8 @@
 //
 
 #import "CoreDataTestStack.h"
-#import "LRManagedObjectModelBuilder.h"
+
+#import "KDOManagedObjectModelBuilder.h"
 
 @implementation CoreDataTestStack {
   NSManagedObjectContext *_mainContext;
@@ -17,15 +18,15 @@
 {
   NSManagedObjectModel *model = [[NSManagedObjectModel alloc] init];
   
-  LRManagedObjectModelBuilder *builder = [[LRManagedObjectModelBuilder alloc] initWithManagedObjectModel:model];
+  KDOManagedObjectModelBuilder *builder = [[KDOManagedObjectModelBuilder alloc] initWithManagedObjectModel:model];
   
-  [builder defineEntityNamed:@"Person" definition:^(LREntityDefinition *definition) {
+  [builder defineEntityNamed:@"Company" definition:^(KDOEntityDefinition *definition) {
+    [definition addAttribute:@"name" type:NSStringAttributeType isIndexed:NO];
+  }];
+    
+  [builder defineEntityNamed:@"Person" definition:^(KDOEntityDefinition *definition) {
     [definition addAttribute:@"name" type:NSStringAttributeType isIndexed:NO];
     [definition addAttribute:@"age" type:NSInteger32AttributeType isIndexed:NO];
-  }];
-  
-  [builder defineEntityNamed:@"Company" definition:^(LREntityDefinition *definition) {
-    [definition addAttribute:@"name" type:NSStringAttributeType isIndexed:NO];
   }];
   
   [builder build];

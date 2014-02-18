@@ -185,6 +185,31 @@ DEFINE_TEST_CASE(LRFetchedResultSetTests) {
   expect(updatedObjects).will.contain(person);
 }
 
+- (void)testResultSetNotifiesWhenObjectInResultSetIsUpdated2
+{
+    NSManagedObject *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:coreDataStack.mainContext];
+    [person setValue:@"Joe" forKeyPath:@"name"];
+    [person setValue:@(1) forKeyPath:@"age"];
+    [coreDataStack.mainContext save:nil];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Person"];
+    
+    LRFetchedResultSet *resultSet = [coreDataStack.mainContext LR_executeFetchRequestAndReturnResultSet:fetchRequest error:nil];
+    
+    __block NSSet *updatedObjects = [NSSet set];
+    
+    [resultSet notifyChangesUsingBlock:^(NSDictionary *changes) {
+        updatedObjects = [changes objectForKey:NSUpdatedObjectsKey];
+    }];
+    
+    [person setValue:@"Joe Bloggs" forKeyPath:@"name"];
+    [person setValue:@(17) forKeyPath:@"age"];
+    
+    expect(updatedObjects).will.contain(person);
+    expect([resultSet[0] valueForKey:@"name"]).to.equal(@"Joe Bloggs");
+    expect([resultSet[0] valueForKey:@"age"]).to.equal(@(17));
+}
+
 - (void)testResultSetNotifiesWhenObjectInResultSetIsRefreshedFromChangesMergedFromAnotherContext
 {
   NSManagedObject *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:coreDataStack.mainContext];
